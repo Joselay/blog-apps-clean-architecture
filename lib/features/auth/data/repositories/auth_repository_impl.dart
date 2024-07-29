@@ -1,3 +1,4 @@
+import 'package:clean_architecture/core/error/exceptions.dart';
 import 'package:clean_architecture/core/error/failures.dart';
 import 'package:clean_architecture/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:clean_architecture/features/auth/domain/repository/auth_repository.dart';
@@ -21,8 +22,17 @@ class AuthRepositoryImpl implements AuthRepository {
     required String name,
     required String email,
     required String password,
-  }) {
-    // TODO: implement signUpWithEmailPassword
-    throw UnimplementedError();
+  }) async {
+    try {
+      final userId = await remoteDataSource.signUpWithEmailPassword(
+        name: name,
+        email: email,
+        password: password,
+      );
+
+      return right(userId);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
   }
 }
