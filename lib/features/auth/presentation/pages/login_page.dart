@@ -50,7 +50,10 @@ class _SignUpPageState extends State<LoginPage> {
                 isObscureText: true,
               ),
               const SizedBox(height: 20),
-              const AuthGradientButton(buttonText: "Sign In"),
+              AuthGradientButton(
+                buttonText: "Sign In",
+                onPressed: () {},
+              ),
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
@@ -65,7 +68,7 @@ class _SignUpPageState extends State<LoginPage> {
                     style: Theme.of(context).textTheme.titleMedium,
                     children: [
                       TextSpan(
-                        text: "Sign Out",
+                        text: "Sign Up",
                         style:
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: AppPallete.gradient2,
