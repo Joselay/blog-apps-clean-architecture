@@ -69,11 +69,12 @@ class _SignUpPageState extends State<LoginPage> {
                     children: [
                       TextSpan(
                         text: "Sign Up",
-                        style:
-                            Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  color: AppPallete.gradient2,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(
+                                color: AppPallete.gradient2,
+                                fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
